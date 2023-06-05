@@ -1,0 +1,22 @@
+.container{
+    width: 400px;
+    height: 370px;
+    overflow: hidden;
+    margin: 17px;
+    justify-content: center;
+    border: 2px groove #ABB2B9;
+    border-radius: 13px;
+}
+
+.infoContainer{
+    margin-top: 0;
+    width: 200px;
+    height: 50px;
+}
+
+.img{
+    width: 85%;
+    height: 250px;
+    border-radius: 13px;
+    /* margin: 10px 10px; */
+}
