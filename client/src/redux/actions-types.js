@@ -17,3 +17,6 @@ export const FILTER_API = "FILTER_API";
 
 // >> Por temperamento/s:
 export const FILTER_TEMPERAMENTS = "FILTER_TEMPERAMENTS";
+
+//extras
+export const CLEAN_MSG_DETAIL = "CLEAN_MSG_DETAIL";

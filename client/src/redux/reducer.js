@@ -1,4 +1,4 @@
-import { GET_ALLDOGS, SHOW_ALLDOGS, ORDER_ASCENDENTE, ORDER_DESCENDENTE, ORDER_WEIGHT_MAYOR, FILTER_API, FILTER_BDD, FILTER_TEMPERAMENTS, ORDER_WEIGHT_MENOR } from './actions-types';
+import { GET_ALLDOGS, SHOW_ALLDOGS, ORDER_ASCENDENTE, ORDER_DESCENDENTE, ORDER_WEIGHT_MAYOR, FILTER_API, FILTER_BDD, FILTER_TEMPERAMENTS, ORDER_WEIGHT_MENOR, CLEAN_MSG_DETAIL } from './actions-types';
 
 const initialState = {
     allDogs: [],
@@ -65,6 +65,11 @@ const reducer = (state = initialState, { type, payload }) =>{
             return{
                 ...state,
                 showDogs: allDogs3.filter(dog => dog?.temperament?.includes(payload))
+            }
+        case CLEAN_MSG_DETAIL:
+            return{
+                ...state,
+                message:""
             }
         default:
             return{

@@ -1,23 +1,24 @@
 import s from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
+import welcome from "../../utils/img/nav_welcome_remov.png";
 
 
 const NavBar = () =>{
     return(
         <div className={s.bg}>
-            <div>
-                <h2>aca va una imagen de perritos</h2>
+            <div className={s.container}>
+                <img  className={s.img} src={welcome} alt="dogWelcome" />
 
                 <SearchBar/>
 
+                <NavLink to="/create">
+                    <button>Create your dog!</button>
+                </NavLink>
                 <NavLink to="/home">
-                    <button>HOME</button>
+                    <button>Back Home</button>
                 </NavLink>
 
-                <NavLink to="/create">
-                    <button>CREATE</button>
-                </NavLink>
             </div>
         </div>
     )

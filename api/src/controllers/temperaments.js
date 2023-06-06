@@ -10,13 +10,12 @@ const { Temperament } = require(".././db");
 const getAllTemperaments = async()=>{
     const { data } = await axios("https://api.thedogapi.com/v1/breeds");
     let allTemp = [];
-
     //mapeo para obtener los temp de cada dog y la guardo >>> desp separo los temp por medio de la "coma" y los guardo
     data.map(async (dog) =>{
         let dogTemp = dog.temperament;
         let arr = dogTemp?.split(", ");
-
-    //mapeo para chequear si el temperamento ya existe en el arreglo que creamos, se no existe lo agregamos mediante un push
+        
+        //mapeo para chequear si el temperamento ya existe en el arreglo que creamos, se no existe lo agregamos mediante un push
         arr?.map((temp) =>{
             if(!allTemp.includes(temp)){
                 allTemp.push(temp)
@@ -24,6 +23,7 @@ const getAllTemperaments = async()=>{
         })
     })
     return allTemp;
+    // console.log(allTemp);
 }
 
 //Revisamos los datos de la base de datos local (No tienen que estar duplicados!)

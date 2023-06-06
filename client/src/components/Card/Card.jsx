@@ -5,14 +5,14 @@ import { NavLink } from "react-router-dom";
 const Card = ({ id, name, image, temperament, weight }) => {
     return (
         <div className={s.container}>
-            <NavLink to={`/detail/${id}`}>
-                <h3>{name}</h3>
-                <h5>{weight} /kgs</h5>
-                <h5>{temperament}</h5>
-            </NavLink>
+            <div className={s.info}>
+                <NavLink className={s.nav} to={`/detail/${id}`}>
+                    <h3 className={s.name}>{name} ◾ {weight}/KG</h3>
+                    {/* <h5 className={s.weight}>{weight} /kgs</h5> */}
+                    <h4 className={s.temperament}>{temperament}</h4>
+                </NavLink>
+            </div>
             <img className={s.img} src={image} alt="picDog" />
-            {/* <div className={s.infoContainer}>
-            </div> */}
         </div>
     )
 }

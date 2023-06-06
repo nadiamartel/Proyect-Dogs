@@ -8,15 +8,31 @@
     border-radius: 13px;
 }
 
-.infoContainer{
-    margin-top: 0;
-    width: 200px;
-    height: 50px;
+.nav{
+    text-decoration: none;
+}
+
+.info{
+    padding: 0;
+    width: 400px;
+    height: 90px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    /* line-height: 1; */
 }
 
 .img{
-    width: 85%;
+    width: 90%;
     height: 250px;
     border-radius: 13px;
     /* margin: 10px 10px; */
 }
+
+.name:hover , .temperament:hover {
+    font-size: x-large;
+    color: #C0392B;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
