@@ -1,18 +1,18 @@
 import s from "./Home.module.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getDogs } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { getTemperaments } from "./Home";
+// import { getTemperaments } from "./Home";
 import Card from "../Card/Card";
 
 const Home = () => {
     const dispatch = useDispatch();
     const allDogs = useSelector(state => state.showDogs);
-    const [temperaments, setTemperaments] = useState();
+    // const [temperaments, setTemperaments] = useState();
     
-    useEffect(() =>{
-        getTemperaments(setTemperaments)
-    }, [])
+    // useEffect(() =>{
+    //     getTemperaments(setTemperaments)
+    // }, [])
 
     useEffect(() => {
         dispatch(getDogs())
@@ -22,7 +22,7 @@ const Home = () => {
     return (
         <div className={s.general}>
             <h4>DECIME QUE VAN A APARECER LAS CARDS!</h4>
-            <h6>{temperaments}</h6>
+            {/* <h6>{temperaments}</h6> */}
             {/* solo para que no creashee hasta que lo use! */}
             {/* <select>
                 {

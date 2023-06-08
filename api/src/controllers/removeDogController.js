@@ -1,4 +1,4 @@
-const { Dog } = require(".././db");
+const { Dog } = require("../db");
 
 const removeDog = async(id) =>{
     const dogDel = await Dog.findByPK(id);

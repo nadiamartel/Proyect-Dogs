@@ -1,8 +1,8 @@
 //desarrollar infoAllDogs
-const { Dog, Temperament } = require(".././db");
+const { Dog, Temperament } = require("../db");
 const { Op } = require("sequelize");
 const axios = require("axios");
-const { API_KEY } = process.env;
+// const { API_KEY } = process.env;
 
 const infoAllDogs = async(name) =>{
     //revisamos si existe el nombre >>> luego ontenemos todos los perris de la BDD

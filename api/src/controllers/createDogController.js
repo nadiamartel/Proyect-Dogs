@@ -1,5 +1,5 @@
 //aca va desarrolla la fn "createDog"
-const { Dog } = require(".././db");
+const { Dog } = require("../db");
 
 const createDog = async({name, image, height, weight, life_span, temperaments}) =>{
     if(!name || !image || !height || !weight || !life_span || !temperaments) throw Error("You must complete all fields");

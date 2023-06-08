@@ -5,6 +5,7 @@ import Landing from "./components/Landing/Landing";
 import Home from "./components/Home/Home";
 import NavBar from './components/NavBar/NavBar';
 import Detail from './components/Detail/Detail';
+import Form from './components/Form/Form';
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Landing}/>
         <Route path="/home" component={Home}/>
-        <Route path="/detail" component={Detail}/>
+        <Route path="/detail/:id" component={Detail}/>
+        <Route path="/create" component={Form}/>
 
       </Switch>
     </div>

@@ -1,5 +1,5 @@
 //aca va desarrollada la fN "infoDogById"
-const { Dog, Temperament } = require(".././db");
+const { Dog, Temperament } = require("../db");
 const axios = require("axios");
 
 const infoDogById = async(id) =>{

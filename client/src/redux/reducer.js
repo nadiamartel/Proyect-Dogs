@@ -2,39 +2,42 @@ import { GET_ALLDOGS, SHOW_ALLDOGS, ORDER_ASCENDENTE, ORDER_DESCENDENTE, ORDER_W
 
 const initialState = {
     allDogs: [],
-    showDogs: []
+    showDogs: [],
+    // temperaments: [],
+    // allTemperaments: [],
+    // breeds: []
 }
 
-const reducer = (state = initialState, { type, payload }) =>{
-    switch(type){
+const reducer = (state = initialState, { type, payload }) => {
+    switch (type) {
         case GET_ALLDOGS:
-            return{
+            return {
                 ...state,
                 allDogs: payload,
                 showDogs: payload
             };
         case SHOW_ALLDOGS:
-            return{
+            return {
                 ...state,
                 showDogs: payload
             };
         case ORDER_ASCENDENTE:
             const allDogs = [...state.showDogs]
-            return{
+            return {
                 ...state,
                 showDogs: allDogs.sort((a, b) => a.name.localeCompare(b.name)) //ordena en funcion del name ingresado
             };
         case ORDER_DESCENDENTE:
             const allDogsAux = [...state.showDogs]
-            return{
+            return {
                 ...state,
                 showDogs: allDogsAux.sort((a, b) => b.name.localeCompare(a.name))
             };
         case ORDER_WEIGHT_MAYOR:
             const allDogsAuxDos = [...state.showDogs]
-            return{
+            return {
                 ...state,
-                showDogs: allDogsAuxDos.sort((a, b) =>{
+                showDogs: allDogsAuxDos.sort((a, b) => {
                     const weightA = +a.weight.metric.split(" ")[0];
                     const weightB = +b.weight.metric.split(" ")[0];
                     return weightA - weightB //porq el formato de la API es: weight:{ metric: 7 - 27}
@@ -42,8 +45,8 @@ const reducer = (state = initialState, { type, payload }) =>{
             };
         case ORDER_WEIGHT_MENOR:
             const allDogsAuxTres = [...state.showDogs]
-            return{
-                showDogs: allDogsAuxTres.sort((a, b) =>{
+            return {
+                showDogs: allDogsAuxTres.sort((a, b) => {
                     const weightA = +a.weight.metric.split(" ")[0];
                     const weightB = +b.weight.metric.split(" ")[0];
                     return weightB - weightA
@@ -51,28 +54,43 @@ const reducer = (state = initialState, { type, payload }) =>{
             }
         case FILTER_API:
             const allDogs1 = [...state.allDogs]
-            return{
+            return {
                 ...state,
                 showDogs: allDogs1.filter(dog => typeof dog.id === "number") //id de la api es num entero
             };
         case FILTER_BDD:
             const allDogs2 = [...state.allDogs]
-            return{
+            return {
                 showDogs: allDogs2.filter(dog => /([a-zA-Z]+([0-9]+[a-zA-Z]+)+)/.test(dog.id))
             };
         case FILTER_TEMPERAMENTS:
             const allDogs3 = [...state.allDogs]
-            return{
+            return {
                 ...state,
                 showDogs: allDogs3.filter(dog => dog?.temperament?.includes(payload))
             }
         case CLEAN_MSG_DETAIL:
-            return{
+            return {
                 ...state,
-                message:""
+                message: ""
             }
+        // >>> PRUEBA DE TEMPERAMENTOS <<<//
+        // case SEARCH_BREED:
+        //     if (payload === "") return { ...state, breeds: state.allDogs };
+        //     const breed = state.allDogs.filter((dog) => {
+        //         return dog.name.toLowerCase().includes(payload.toLowerCase());
+        //     });
+        //     return { ...state, breeds: breed };
+        // case SEARCH_TEMPERAMENT:
+        //     if (payload === "")
+        //         return { ...state, temperaments: state.allTemperaments };
+
+        //     const temp = state.allTemperaments.filter((tem) => {
+        //         return tem.name.toLowerCase().includes(payload.toLowerCase());
+        //     });
+        //     return { ...state, temperaments: temp };
         default:
-            return{
+            return {
                 ...state
             }
     }

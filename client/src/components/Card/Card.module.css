@@ -29,10 +29,15 @@
     /* margin: 10px 10px; */
 }
 
+.img:hover{
+    transform: scale(1.1);
+    rotate: 360deg;
+    transition: 0.5s ease;
+}
+
 .name:hover , .temperament:hover {
     font-size: x-large;
-    color: #C0392B;
+    color: #E41D08;
     transform: translateY(-5px);
     transition: all 0.3s ease;
 }
-

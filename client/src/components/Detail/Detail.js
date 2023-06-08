@@ -1,17 +1,71 @@
 import axios from "axios";
-// import { msgDetail } from "../../redux/actions";
+import { msgDetail, msgNotFound } from "../../redux/actions";
 
-export const getDog = async(id, setDog, navigate) =>{
-    try {
-        const { data } = await axios(`http://localhost:3001/dogs/${id}`);
-        setDog(data)
-    } catch (error) {
-        setTimeout(()=>{
-            navigate("/home");
-        }, 3000)
-    }
+export const getDog = async (id, setDog, dispatch, navigate) => { try {
+    const { data } = await axios(`http://localhost:3001/dogs/${id}`);  
+    setDog(data);
+} catch (error) {
+   dispatch(msgNotFound(`There is not dog with id: ${id}`))
+
+   setTimeout(() => {
+       dispatch(msgDetail())
+   }, "3000")
+
+   setTimeout(() => {
+       navigate('/home')
+   }, "3000")
+  }
 };
 
-export const handleChange = () =>{
-    
+export const handleChange = (event, dataToUptade, setDataToUpdate, setErrors) => {
+  const { name, value } = event.target;
+  setDataToUpdate({
+    ...dataToUptade,
+    [name]:value
+  })
 }
+
+export const handleDelete = async (id, dispatch, navigate) => {
+  try {
+   const { data } = await axios.delete(`http://localhost:3001/dogs/${id}`)
+
+   dispatch(msgNotFound(data.message))
+
+   setTimeout(() => {
+       dispatch(msgDetail())
+   }, "3000")
+
+   setTimeout(() => {
+       navigate('/home')
+   }, "3000")
+
+  } catch (error) {
+    console.log(error)
+  }
+};
+
+export const handleEdit = async (id, dispatch, dataToUptadte, setView, navigate) => {
+  try {
+    const newDataDog = {
+      id: id,
+      name: dataToUptadte.name,
+      height: `${dataToUptadte.height_min} - ${dataToUptadte.height_max}`,
+      weight: `${dataToUptadte.weight_min} - ${dataToUptadte.weight_max}`,
+      life_span: `${dataToUptadte.life_span_min} - ${dataToUptadte.life_span_max} years`,
+      image: `${dataToUptadte.image}`
+  };
+
+    const { data } = await axios.put(`http://localhost:3001/dogs/${id}`, newDataDog);
+
+    dispatch(msgNotFound(data.message))
+
+    setTimeout(() => {
+        dispatch(msgDetail())
+        window.location.reload()
+    }, "1000")
+    
+  } catch (error) {
+    console.log('aki')
+  }
+};
+
