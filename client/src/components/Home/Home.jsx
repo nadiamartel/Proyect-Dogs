@@ -1,41 +1,97 @@
 import s from "./Home.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getDogs } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-// import { getTemperaments } from "./Home";
-import Card from "../Card/Card";
+import { getTemperaments, nextPage, prevPage, showFirst, filterOrigin, filterTemperaments, orderAlfa, orderWeight } from "./Home.js";
+import Card from "../Card/Card.jsx";
+// import { Link } from "react-router-dom";
 
 const Home = () => {
     const dispatch = useDispatch();
     const allDogs = useSelector(state => state.showDogs);
-    // const [temperaments, setTemperaments] = useState();
-    
-    // useEffect(() =>{
-    //     getTemperaments(setTemperaments)
-    // }, [])
+    const [temperaments, setTemperaments] = useState([]);
+    const [cardsShow, setCardsShow] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0)
+
+    useEffect(() => {
+        getTemperaments(setTemperaments)
+    }, [])
 
     useEffect(() => {
         dispatch(getDogs())
-    },[dispatch]) //REVISAR ESTO!
+    }, [dispatch]) //REVISAR ESTO!
 
+    useEffect(() => {
+        showFirst(allDogs, setCardsShow)
+    }, [allDogs])
+
+    const nextPageHandler = () => {
+        nextPage(allDogs, currentPage, setCardsShow, setCurrentPage)
+    }
+
+    const prevPageHandler = () => {
+        prevPage(allDogs, currentPage, setCardsShow, setCurrentPage)
+    }
+
+    const handleFilterOrigin = (event) => {
+        const { value } = event.target;
+        filterOrigin(value, dispatch, setCurrentPage)
+    }
+
+    const handleFilterTemperaments = (event) => {
+        const { value } = event.target;
+        filterTemperaments(value, dispatch, setCurrentPage)
+    }
+
+    const handleOrderAlfa = (event) => {
+        const { value } = event.target;
+        orderAlfa(value, dispatch, setCurrentPage)
+    }
+
+    const handleOrderWeight = (event) => {
+        const { value } = event.target;
+        orderWeight(value, dispatch, setCurrentPage)
+    }
 
     return (
         <div className={s.general}>
-            <h4>DECIME QUE VAN A APARECER LAS CARDS!</h4>
-            {/* <h6>{temperaments}</h6> */}
-            {/* solo para que no creashee hasta que lo use! */}
-            {/* <select>
-                {
-                    temperaments.map(temp =>{
-                        return(
-                            <option value={temp.name}>{temp.name}</option>
-                        )
-                    })
-                }
-            </select> */}
+            <div>
+                <span>Filter By:</span>
+                <select onChange={handleFilterOrigin}>
+                    <option value="All">All Dogs</option>
+                    <option value="API">Dogs Interface</option>
+                    <option value="BDD">Dogs Created</option>
+                </select>
+
+                <select onChange={handleFilterTemperaments}>
+                    {
+                        temperaments.map((temp, index) => {
+                            return (
+                                <option key={index} value={temp.name}>{temp.name}</option>
+                            )
+                        })
+                    }
+                </select>
+
+                <span>Order By:</span>
+                <select onChange={handleOrderAlfa}>
+                    <option value="Asc">Ascending</option>
+                    <option value="Desc">Descending</option>
+                </select>
+
+                <select onChange={handleOrderWeight}>
+                    <option value="weMayor">Lower weight</option>
+                    <option value="weMenor">Greater weight</option>
+                </select>
+
+                {/* <Link to="/home">
+                    <button>Refresh all</button>
+                </Link> */}
+            </div>
+
             <div className={s.cardContainer}>
                 {
-                    allDogs.map(({ id, name, image, temperament, weight }) => {
+                    cardsShow.map(({ id, name, image, temperament, weight }) => {
                         return (
                             <Card
                                 key={id}
@@ -49,6 +105,10 @@ const Home = () => {
                     })
                 }
             </div>
+
+            <button onClick={prevPageHandler}>Prev</button>
+            <label htmlFor="current">{currentPage}</label>
+            <button onClick={nextPageHandler}>Next</button>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import s from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar.jsx";
 import welcome from "../../utils/img/nav_welcome_remov.png";
 
 

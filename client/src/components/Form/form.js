@@ -1,29 +1,37 @@
 import axios from "axios";
 
-export const getTemperaments = async(setTemperaments) =>{
+//traigo los temperamentos guardados em la base de datos:
+export const getTemperaments = async (setTemperaments) => {
     const { data } = await axios(`http://localhost:3001/temperaments`)
     setTemperaments(data)
 };
 
-export const handleChange = (event, dogCreate, setDogCreate, setErrors, validate) =>{
+//seteamos la fn q crea el dog, validamos por campo: [name]: value, validamos y actualizamos los errores
+export const handleChange = (event, dogCreate, setDogCreate, setErrors, validate) => {
     const { name, value } = event.target;
     setDogCreate({
-        ...dogCreate, [name] : value
+        ...dogCreate, 
+        [name]: value
     })
     setErrors(
         validate({
-            ...dogCreate, [name] : value
+            ...dogCreate,
+             [name]: value
         })
     )
 };
 
-export const handleTemperaments = (temperaments, tempShow, setTempShow, tempSelect) =>{
-    const tempFound = temperaments.find(temp => temp.id === +tempSelect)
-    if(tempShow.includes(`${tempFound.name}`)) return;
-    setTempShow([...tempShow, `${tempFound.name}`])
+//recorremos temps y verificamos si ya esta entre los temps que se muestran, si no esta lo agrega(para no agregar 2 veces el mismo)
+export const handleTemperaments = (tempSelect, setTempShow, tempShow, temperaments) => {
+    if (Array.isArray(temperaments)) {
+        const tempFound = temperaments.find(temp => temp.id === +tempSelect)
+        if (tempShow.includes(`${tempFound.name}`)) return;
+        setTempShow([...tempShow, `${tempFound.name}`])
+    }
 };
 
-export const handleSubmit = async(dogCreate, setDogCreate, setTempShow) =>{
+//pa manejar el envio del form
+export const handleSubmit = async (dogCreate, setDogCreate, setTempShow) => {
     try {
         const newDog = {
             name: dogCreate.name[0].toUpperCase() + dogCreate.name.slice(1).toLowerCase(),
@@ -46,6 +54,7 @@ export const handleSubmit = async(dogCreate, setDogCreate, setTempShow) =>{
             temperaments: []
         })
         setTempShow([]);
+        alert("cargado ok")
         console.log(data);
     } catch (error) {
         alert("algo salio mal, revisar!!")

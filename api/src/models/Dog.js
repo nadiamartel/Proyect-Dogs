@@ -28,6 +28,12 @@ module.exports = (sequelize) => {
     life_span: {
       type: DataTypes.STRING,
       allowNull: false
-    }
-  });
+    },
+    // apiId: {
+    //   type: DataTypes.INTEGER,
+    // }
+  },
+    {
+      timestamps: false,
+    });
 };

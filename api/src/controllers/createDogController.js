@@ -12,7 +12,7 @@ const createDog = async({name, image, height, weight, life_span, temperaments}) 
     //agrego los temp(que es un array!) asociados al perro
     newDog.addTemperament(temperaments);
 
-    return newDog
+    return newDog;
 }
 
 module.exports ={

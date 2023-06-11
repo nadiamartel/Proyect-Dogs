@@ -52,22 +52,34 @@ const reducer = (state = initialState, { type, payload }) => {
                     return weightB - weightA
                 })
             }
-        case FILTER_API:
-            const allDogs1 = [...state.allDogs]
-            return {
-                ...state,
-                showDogs: allDogs1.filter(dog => typeof dog.id === "number") //id de la api es num entero
-            };
-        case FILTER_BDD:
-            const allDogs2 = [...state.allDogs]
-            return {
-                showDogs: allDogs2.filter(dog => /([a-zA-Z]+([0-9]+[a-zA-Z]+)+)/.test(dog.id))
-            };
-        case FILTER_TEMPERAMENTS:
-            const allDogs3 = [...state.allDogs]
-            return {
-                ...state,
-                showDogs: allDogs3.filter(dog => dog?.temperament?.includes(payload))
+        case FILTER_API: //REVISAR!!
+            if(Array.isArray(state.allDogs)){
+                const allDogs1 = [...state.allDogs]
+                return {
+                    ...state,
+                    showDogs: allDogs1.filter(dog => typeof dog.id === "number") //id de la api es num entero
+                }
+            } else{
+                return state
+            }
+        case FILTER_BDD: //REVISAR /([a-zA-Z]+([0-9]+[a-zA-Z]+)+)/
+            if(Array.isArray(state.allDogs)){
+                const allDogs2 = [...state.allDogs]
+                return {
+                    showDogs: allDogs2.filter(dog => /[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/.test(dog.id))
+                };
+            } else{
+                return state
+            }
+        case FILTER_TEMPERAMENTS: //REVISAR
+            if(Array.isArray(state.allDogs)){
+                const allDogs3 = [...state.allDogs]
+                return {
+                    ...state,
+                    showDogs: allDogs3.filter(dog => dog?.temperament?.includes(payload))
+                }
+            } else{
+                return state
             }
         case CLEAN_MSG_DETAIL:
             return {
