@@ -3,11 +3,12 @@ import axios from "axios";
 //Aux peticion
 export const handleSearch = async(nameSearch, dispatch, showDogs) =>{
     try {
-        const response = await axios(`http:localhost:3001/dogs/?name=${nameSearch}`);
-        if(typeof response.data === "string"){
-            return;
-        }
+        const response = await axios(`http://localhost:3001/dogs/?name=${nameSearch}`);
+        // if(typeof response.data === "string"){
+        //     return;
+        // }
         dispatch(showDogs(response.data));
+        // console.log(response.data);
     } catch (error) {
         alert("Unknwon error")
     }

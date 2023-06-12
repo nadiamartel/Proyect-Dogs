@@ -1,7 +1,7 @@
 import axios from "axios";
 import { msgDetail, msgNotFound } from "../../redux/actions";
 
-export const getDog = async (id, setDog, dispatch, navigate) => { try {
+export const getDog = async (id, setDog, dispatch) => { try {
     const { data } = await axios(`http://localhost:3001/dogs/${id}`);  
     setDog(data);
 } catch (error) {
@@ -11,13 +11,13 @@ export const getDog = async (id, setDog, dispatch, navigate) => { try {
        dispatch(msgDetail())
    }, "3000")
 
-   setTimeout(() => {
-       navigate('/home')
-   }, "3000")
+  //  setTimeout(() => {
+  //      navigate('/home')
+  //  }, "3000")
   }
 };
 
-export const handleChange = (event, dataToUptade, setDataToUpdate, setErrors) => {
+export const handleChange = (event, dataToUptade, setDataToUpdate) => {
   const { name, value } = event.target;
   setDataToUpdate({
     ...dataToUptade,
@@ -35,9 +35,9 @@ export const handleDelete = async (id, dispatch, navigate) => {
        dispatch(msgDetail())
    }, "3000")
 
-   setTimeout(() => {
-       navigate('/home')
-   }, "3000")
+  //  setTimeout(() => {
+  //      navigate('/home')
+  //  }, "3000")
 
   } catch (error) {
     console.log(error)
@@ -65,7 +65,7 @@ export const handleEdit = async (id, dispatch, dataToUptadte, setView, navigate)
     }, "1000")
     
   } catch (error) {
-    console.log('aki')
+    alert("revisar en que momento aparace")
   }
 };
 

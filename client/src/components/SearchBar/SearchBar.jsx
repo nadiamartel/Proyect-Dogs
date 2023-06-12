@@ -2,13 +2,13 @@ import { useDispatch } from "react-redux";
 import { handleInput, handleSearch } from "./SearchBar";
 import { useState } from "react";
 import { showDogs } from "../../redux/actions";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import s from "./SearchBar.module.css";
 
 const SearchBar = () =>{
 
     const dispatch = useDispatch();
-    const navigate = useHistory();
+    // const navigate = useHistory();
     const [nameSearch, setNameSearch] = useState("");
 
     const handleInputL = (event) =>{
@@ -17,7 +17,7 @@ const SearchBar = () =>{
 
     const handleSearchL = (event) =>{
         event.preventDefault();
-        handleSearch(nameSearch, dispatch, showDogs, navigate);
+        handleSearch(nameSearch, dispatch, showDogs);
         setNameSearch("");
     }
 

@@ -8,6 +8,7 @@ const Form = () => {
     const [tempShow, setTempShow] = useState([]);
     const [temperaments, setTemperaments] = useState([]);
     const [tempSelect, setTempSelect] = useState("");
+    const [errors, setErrors] = useState("");
     const [dogCreate, setDogCreate] = useState({
         name: "",
         image: "",
@@ -19,7 +20,6 @@ const Form = () => {
         life_span_max: "",
         temperaments: []
     })
-    const [errors, setErrors] = useState("");
 
     const handleChangeL = (event) => {
         handleChange(event, dogCreate, setDogCreate, setErrors, validate)
@@ -74,7 +74,7 @@ const Form = () => {
 
                 <label htmlFor="life_span">Life Span:</label>
                 <input className={s.input_num} type="number" name="life_span_min" placeholder="years min" min="5" max="15" onChange={handleChangeL} value={dogCreate.life_span_min}/>
-                <input className={s.input_num} type="number" name="life_span_max" placeholder="years max" min="7" max="20" onChange={handleChangeL} value={dogCreate.life_span_max}/>
+                <input className={s.input_num} type="number" name="life_span_max" placeholder="years max" min="8" max="20" onChange={handleChangeL} value={dogCreate.life_span_max}/>
                 {errors && errors.includes("life") && <p>{errors}</p>}
 
                 <label htmlFor="image">Image:</label>

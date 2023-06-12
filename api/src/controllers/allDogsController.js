@@ -11,7 +11,7 @@ const infoAllDogs = async(name) =>{
 
         //guardamos la info y mapeamos con los datos que necesitamos
         const dogsFoundDB = []; 
-        dogsFoundDB?.map(dog =>{
+        dogsBD?.map(dog =>{
             const infoDog = {
                 id: dog.id,
                 name: dog.name,
@@ -43,7 +43,7 @@ const infoAllDogs = async(name) =>{
         }, include: Temperament
     });
 
-    const dogsFoundBD = [];
+    const dogsFoundDB = [];
 
     dogFound?.map(dog =>{
         const infoDog = {
@@ -53,7 +53,7 @@ const infoAllDogs = async(name) =>{
             weight: { metric: dog.weight },
             temperament: `${ dog.Temperaments.map(temperament =>`${temperament.name}`) }`
         }
-        dogsFoundBD.push(infoDog)
+        dogsFoundDB.push(infoDog)
     })
 
     //ahora buscamos en la API:
@@ -76,9 +76,9 @@ const infoAllDogs = async(name) =>{
         }
     }
 
-    if(dogsFoundBD.length ===0 && dogsFoundAPI !==0) return dogsFoundAPI;
-    if(dogsFoundBD.length !==0 && dogsFoundAPI ===0) return dogsFoundBD;
-    if(dogsFoundBD.length !==0 && dogsFoundAPI !==0) return dogsFoundBD.concat(dogsFoundAPI);
+    if(dogsFoundDB.length ===0 && dogsFoundAPI !==0) return dogsFoundAPI;
+    if(dogsFoundDB.length !==0 && dogsFoundAPI ===0) return dogsFoundDB;
+    if(dogsFoundDB.length !==0 && dogsFoundAPI !==0) return dogsFoundDB.concat(dogsFoundAPI);
 
     return `There is no dog with ${name}`;
 }
