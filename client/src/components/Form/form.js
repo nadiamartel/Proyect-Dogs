@@ -13,6 +13,7 @@ export const handleChange = (event, dogCreate, setDogCreate, setErrors, validate
         ...dogCreate, 
         [name]: value
     })
+
     setErrors(
         validate({
             ...dogCreate,

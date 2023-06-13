@@ -11,7 +11,7 @@ const Detail = () => {
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
     const [dog, setDog] = useState([]);
-    const [dataUptdate, setDataToUptdate] = useState({
+    const [dataUpdate, setDataUpdate] = useState({
         name: "",
         image: "",
         height_min: "",
@@ -29,7 +29,7 @@ const Detail = () => {
 
     const hanldeInputChange = (event) => {
         event.preventDefault();
-        handleChange(event, dataUptdate, setDataToUptdate)
+        handleChange(event, dataUpdate, setDataUpdate)
     }
 
     const handleDeleteL = (event) => {
@@ -44,7 +44,7 @@ const Detail = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleEdit(id, dispatch, dataUptdate, setShow, navigate)
+        handleEdit(id, dispatch, dataUpdate, setShow, navigate)
     }
 
     //Adapatar para id de BDD y API y asi poder modif y eliminar

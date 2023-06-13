@@ -3,7 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../../utils/img/bg_general.jpg");
+    /* background-color: #F7EF99; */
+    background-size: cover;
+    background-image: url("../../utils//img/bg_form.png");
+    background-attachment: fixed;
 }
 
 .title{
@@ -34,7 +37,7 @@
 }
 
 table, td, tr{
-    border: 3px groove #E41D08;   
+    border: 3px groove #F78E69;   
 }
 
 table{
@@ -46,6 +49,6 @@ table{
 
 .back{
     width: 150px;
-    background-color: #ABB2B9;
+    background-color: #ABE188;
     border-radius: 13px;
 }

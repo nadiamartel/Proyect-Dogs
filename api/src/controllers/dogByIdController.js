@@ -7,7 +7,7 @@ const infoDogById = async(id) =>{
     //definimos esta const por el tipo de ID que tiene la bdd y poder buscarla
 
     if(regex.test(id)){
-        const dogFound = await Dog.findByPK(id, {include: Temperament});
+        const dogFound = await Dog.findByPk(id, {include: Temperament});
         if(!dogFound) throw Error(`The indicated ${id} does not exist`);
 
         const dogShow = {
@@ -16,9 +16,10 @@ const infoDogById = async(id) =>{
             image: { url: dogFound.image },
             height: { metric: dogFound.height },
             weight: { metric: dogFound.weight },
-            life_span: dogFound,life_span,
+            life_span: dogFound.life_span,
             temperament: `${ dogFound.Temperaments.map(temperament => temperament.name) }`
         }
+        // console.log(dogShow);
         return dogShow;
     }
 

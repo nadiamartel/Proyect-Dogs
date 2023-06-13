@@ -17,10 +17,10 @@ export const getDog = async (id, setDog, dispatch) => { try {
   }
 };
 
-export const handleChange = (event, dataToUptade, setDataToUpdate) => {
+export const handleChange = (event, dataUpdate, setDataUpdate) => {
   const { name, value } = event.target;
-  setDataToUpdate({
-    ...dataToUptade,
+  setDataUpdate({
+    ...dataUpdate,
     [name]:value
   })
 }
@@ -44,15 +44,15 @@ export const handleDelete = async (id, dispatch, navigate) => {
   }
 };
 
-export const handleEdit = async (id, dispatch, dataToUptadte, setView, navigate) => {
+export const handleEdit = async (id, dispatch, dataUpdate, setView, navigate) => {
   try {
     const newDataDog = {
       id: id,
-      name: dataToUptadte.name,
-      height: `${dataToUptadte.height_min} - ${dataToUptadte.height_max}`,
-      weight: `${dataToUptadte.weight_min} - ${dataToUptadte.weight_max}`,
-      life_span: `${dataToUptadte.life_span_min} - ${dataToUptadte.life_span_max} years`,
-      image: `${dataToUptadte.image}`
+      name: dataUpdate.name,
+      height: `${dataUpdate.height_min} - ${dataUpdate.height_max}`,
+      weight: `${dataUpdate.weight_min} - ${dataUpdate.weight_max}`,
+      life_span: `${dataUpdate.life_span_min} - ${dataUpdate.life_span_max} years`,
+      image: `${dataUpdate.image}`
   };
 
     const { data } = await axios.put(`http://localhost:3001/dogs/${id}`, newDataDog);

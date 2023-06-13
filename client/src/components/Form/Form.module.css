@@ -2,12 +2,17 @@
     display: flex;
     justify-content:  center;
     align-items: center;
+    background-image: url("../../utils/img/bg_form.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .container_form{
-    background-image: url("../../utils/img/bg_general.jpg");
+    background-color: #F7EF99;
+    /* background-color: transparent; */
     width: 45%;
-    height: 500px; 
+    height: 550px; 
     /* revisar si hace falta, porq condiciona lo el contenido! */
     border-radius: 13px; 
     margin-top: 17px;

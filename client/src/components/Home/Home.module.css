@@ -1,6 +1,7 @@
 .general{
     /* background-image: url("https://media.istockphoto.com/id/490747664/es/foto/gray-perro-patr%C3%B3n-de-repetici%C3%B3n-de-fondo-de-azulejos.jpg?s=170667a&w=0&k=20&c=k1NieMx-lKGeAogQa8ox80HT9wFTq9hK4MQcz_nfQEA="); */
-    background-image: url("../../utils/img/bg_general.jpg");
+    /* background-image: url("../../utils/img/bg_general.jpg"); */
+    background-color: #F7EF99 ;
 }
 
 .cardContainer{

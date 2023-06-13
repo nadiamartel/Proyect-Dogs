@@ -4,12 +4,18 @@
     overflow: hidden;
     margin: 17px;
     justify-content: center;
-    border: 2px groove #ABB2B9;
+    border: 3px groove #F1BB87;
     border-radius: 13px;
+  
 }
 
 .nav{
     text-decoration: none;
+    color: #5D675B;
+}
+
+.nav:visited{
+    color: #5D675B;
 }
 
 .info{
@@ -37,7 +43,7 @@
 
 .name:hover , .temperament:hover {
     font-size: x-large;
-    color: #E41D08;
+    color: #F78E69  ;
     transform: translateY(-5px);
     transition: all 0.3s ease;
 }
