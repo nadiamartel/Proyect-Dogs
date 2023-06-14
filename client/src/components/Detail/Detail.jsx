@@ -51,24 +51,20 @@ const Detail = () => {
     //Adapatar para id de BDD y API y asi poder modif y eliminar
     return (
         <div className={s.container} key={dog[0]?.id || dog.id}>
-            {/* <div>
-                <Link to="/home">
-                    <button className={s.back}>↩BACK</button>
-                </Link>
-            </div> */}
+
             <h2 className={s.title}>Details you should know!</h2>
 
             <div className={s.data}>
                 <img className={s.img} src={dog[1]?.url || dog.image?.url} alt="" />
 
                 <div className={s.info}>
-                    <h4>Name:<span> {dog[0]?.name || dog.name}</span></h4>
+                    <h4 className={s.span_etiq}>Name:<span> {dog[0]?.name || dog.name}</span></h4>
 
-                    {dog[0]?.origin && <h4>Origin: <span>{dog[0]?.origin}</span></h4>}
+                    {dog[0]?.origin && <h4 className={s.span_etiq}>Origin: <span>{dog[0]?.origin}</span></h4>}
 
-                    <h4>Temperaments:<span> {dog[0]?.temperament || dog?.temperament}</span></h4>
+                    <h4 className={s.span_etiq}>Temperaments:<span> {dog[0]?.temperament || dog?.temperament}</span></h4>
                     <table>
-                        <tbody>
+                        <tbody className={s.table_title}>
                             <tr>
                                 <td>Height:</td>
                                 <td>Weight:</td>
@@ -76,7 +72,7 @@ const Detail = () => {
                                 <td>ID:</td>
                             </tr>
                         </tbody>
-                        <tbody>
+                        <tbody className={s.table_content}>
                             <tr>
                                 <td>{dog[0]?.height?.metric || dog.height?.metric} cm </td>
                                 <td>{dog[0]?.weight?.metric || dog.weight?.metric} kg </td>
@@ -90,11 +86,11 @@ const Detail = () => {
                 </div>
 
             </div>
-            <span></span>
+            <div id="alert-container"></div>
             {
                 show && <form className={s.form} onSubmit={handleSubmit} >
                     <label>Complete the information you want to update:</label>
-                    <input onChange={hanldeInputChange} type="text" placeholder='Name' name='name' />
+                    <input onChange={hanldeInputChange} type="text" placeholder='Name*' name='name' />
 
                     <input onChange={hanldeInputChange} placeholder="Min height" name="height_min" type="number" min="10" max="100" />
                     <input onChange={hanldeInputChange} placeholder="Max heigth" name="height_max" type="number" min="10" max="100" />
@@ -105,8 +101,9 @@ const Detail = () => {
                     <input onChange={hanldeInputChange} placeholder="Min life span" name="life_span_min" type="number" min="5" max="15" />
                     <input onChange={hanldeInputChange} placeholder="Max life span" name="life_span_max" type="number" min="8" max="20" />
 
-                    <input onChange={hanldeInputChange} name="image" type="url" placeholder="Image url" />
                     <button className={s.btn}> Update </button>
+
+                    <div><span className={s.advertencia}>⚠ IMPORTANT! The "Name" field is required ⚠</span></div>
 
                 </form>
             }

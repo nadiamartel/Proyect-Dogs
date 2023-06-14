@@ -1,12 +1,11 @@
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    /* background-color: #F7EF99; */
     background-size: cover;
     background-image: url("../../utils//img/bg_form.png");
     background-attachment: fixed;
+    height: 100vh;
 }
 
 .title{
@@ -16,14 +15,10 @@
 }
 
 .data{
-    /* border: 5px solid brown; */
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     width: 75%;
     font-size: larger;
-        /* font-family:'Courier New', Courier, monospace;
-        font-weight: bold; */
 }
 
 .img{
@@ -74,24 +69,55 @@ table{
     font-size: 18px;
 }
 
+.span_etiq span{
+    color: #5D675B;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';    
+    font-size: 21px;
+}
+
+.span_etiq:hover span{
+    font-size: x-large;    
+}
+
 .form{
     border: 2px dotted #5D675B;
     width: 79%;
     margin-top: 10px;
-    height: auto;
+    height: 100px;
 }
 
 .btn{
     background-color: #F78E69;
     width: 50%;
-    height: 17%;
+    height: 21%;
     margin-top: 10px;
     color: #F7EF99;
     border: none;
+    border-radius: 7px;
+    letter-spacing: 5px;
 }
 
 .btn:hover{
     color: #5D675B;
     font-size: 17px;
     font-weight: bold;
+    letter-spacing: 9px;
+}
+
+.table_title{
+    color: #050000;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.table_content{
+    color: #5D675B;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';    
+    font-size: 21px;
+}
+
+.advertencia{
+    color: #F91E07;
+    font-size: 15px;
+    font-weight: bolder;
 }

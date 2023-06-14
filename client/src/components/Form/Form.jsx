@@ -99,15 +99,15 @@ const Form = () => {
                     }
                 </select>
 
-                <button disabled={!tempSelect} onClick={handleChangeButton}>Add Temperament</button>
-                {tempShow.length > 0 ? <h5>Your selection:{" "} <span>{tempShow.join(", ")}</span></h5> : null}
+                <button className={s.add_btn} disabled={!tempSelect} onClick={handleChangeButton}>Add Temperament</button>
+                {tempShow.length > 0 ? <h5 className={s.temps}>Your selection:{" "} <span>{tempShow.join(", ")}</span></h5> : null}
                 {errors.temperaments && <p>{errors.temperaments}</p>}
 
             
                 <div>
-                    {   //verifico si hay ungun error en el obj errors:
+                    {   //verifico si hay algun error en el obj errors:
                         dogCreate.name && !Object.values(errors).some((error) => error !== "")
-                        ? <button>CREATE</button>
+                        ? <button className={s.create_btn}>CREATE</button>
                         : null
                     }
                 </div>

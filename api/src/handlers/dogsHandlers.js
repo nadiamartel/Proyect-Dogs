@@ -36,6 +36,7 @@ const postDog = async(req, res) =>{
 
 const putDog = async(req, res) =>{
     try {
+        console.log(req.body);
         const { id, name, life_span, height, weight } = req.body;
         const dogMoodif = dogUpdate(id, name, life_span, height, weight);
         return res.status(200).json(dogMoodif); 
