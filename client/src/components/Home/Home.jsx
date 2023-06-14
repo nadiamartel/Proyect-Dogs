@@ -56,7 +56,7 @@ const Home = () => {
     return (
         <div className={s.general}>
             <div>
-                <span>Filter By:</span>
+                <span className={s.title}>Filter By:</span>
                 <select onChange={handleFilterOrigin}>
                     <option value="All">All Dogs</option>
                     <option value="API">Dogs Interface</option>
@@ -73,7 +73,7 @@ const Home = () => {
                     }
                 </select>
 
-                <span>Order By:</span>
+                <span className={s.title}>Order By:</span>
                 <select onChange={handleOrderAlfa}>
                     <option value="Asc">Ascending</option>
                     <option value="Desc">Descending</option>
@@ -105,10 +105,11 @@ const Home = () => {
                     })
                 }
             </div>
-
-            <button onClick={prevPageHandler}>Prev</button>
-            <label htmlFor="current">{currentPage}</label>
-            <button onClick={nextPageHandler}>Next</button>
+            <div className={s.btn_container}>
+                <button className={s.button} onClick={prevPageHandler}>⏪ Prev</button>
+                <label className={s.page} htmlFor="current">{currentPage}</label>
+                <button className={s.button} onClick={nextPageHandler}>Next ⏩</button>
+            </div>
         </div>
     )
 }

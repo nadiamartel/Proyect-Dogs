@@ -89,7 +89,7 @@ const Form = () => {
                 {errors.image && <p>{errors.image}</p>}
 
                 <label htmlFor="temperaments">Temperaments:</label>
-                <select name="select" onChange={(event) => { setTempSelect(event.target.value) }}>
+                <select  className={s.select} name="select" onChange={(event) => { setTempSelect(event.target.value) }}>
                     {
                         temperaments.map((temp) => {
                             return (
@@ -100,7 +100,7 @@ const Form = () => {
                 </select>
 
                 <button disabled={!tempSelect} onClick={handleChangeButton}>Add Temperament</button>
-                {tempShow.length > 0 ? <h5>Your selection: <span>{tempShow}</span></h5> : null}
+                {tempShow.length > 0 ? <h5>Your selection:{" "} <span>{tempShow.join(", ")}</span></h5> : null}
                 {errors.temperaments && <p>{errors.temperaments}</p>}
 
             

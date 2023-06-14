@@ -14,10 +14,10 @@ const NavBar = () =>{
                 <SearchBar/>
 
                 <NavLink to="/create">
-                    <button>Create your dog!</button>
+                    <button className={s.button}>Create your dog!</button>
                 </NavLink>
                 <NavLink to="/home">
-                    <button>Back Home</button>
+                    <button className={s.button}>Back Home</button>
                 </NavLink>
 
             </div>

@@ -6,7 +6,7 @@ router
 .get("/", getAllDogs)
 .get("/:id", getDogById)
 .post("/", postDog)
-.put("/id", putDog)
+.put("/:id", putDog)
 .delete("/:id", deleteDog)
 
 module.exports= router;

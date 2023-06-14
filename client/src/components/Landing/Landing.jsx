@@ -33,7 +33,7 @@ const Landing = () => {
                 {
                     titleComplete && (
                         <Link to="/home">
-                            <button className={s.button}>HOME</button>
+                            <button className={s.button}>START!</button>
                         </Link>
                     )
                 }

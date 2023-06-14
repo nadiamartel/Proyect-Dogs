@@ -1,0 +1,27 @@
+.input{
+    position: relative;
+    padding: 17px 15px ;
+	font-size: 15px;
+    border: groove #5D675B;
+    outline: none;
+    /* margin: 30px; */
+    border-radius: 13px;
+}
+
+.input:hover{
+    width: 250px;
+}
+
+.button{
+    color: #F7EF99;
+    background-color: #5D675B;
+    padding: 10px 15px ;
+    border-radius: 13px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover{
+    font-size: 18px;
+}

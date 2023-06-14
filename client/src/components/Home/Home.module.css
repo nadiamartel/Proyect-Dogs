@@ -11,3 +11,43 @@
     flex-wrap: wrap;
     padding: 10px;
 }
+
+.btn_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button{
+    color: #F7EF99;
+    background-color: #5D675B;
+    line-height: 20px;
+    margin-right: 13px;
+    transition: 0.5s ease all;
+}
+
+.page{
+    margin-right: 13px;
+}
+
+.button:hover{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.title{
+    color: #599A2E;
+    font-weight: bold;
+}
+
+select{
+    border: 2px solid #599A2E;
+    margin-right: 7px;
+    outline: none;
+}
+
+option{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    font-size: 15px;
+}
+
