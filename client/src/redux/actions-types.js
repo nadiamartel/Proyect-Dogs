@@ -18,10 +18,6 @@ export const FILTER_API = "FILTER_API";
 // >> Por temperamento/s:
 export const FILTER_TEMPERAMENTS = "FILTER_TEMPERAMENTS";
 
-//extras
-export const CLEAN_MSG_DETAIL = "CLEAN_MSG_DETAIL";
-export const NOT_FOUND_MSG = "NOT_FOUND_MSG";
-
 // >>> PRUEBA <<<
 // export const SEARCH_BREED= "SEARCH_BREAD";
 // export const SEARCH_TEMPERAMENT = "SEARCH_TEMPERAMENT";

@@ -3,7 +3,7 @@
 // >> Obtiene todos los temperamentos existentes.
 // >> Estos deben ser obtenidos de la API (se evaluará que no haya hardcodeo). Luego de obtenerlos de la API, deben ser guardados en la base de datos para su posterior consumo desde allí.
 const { Temperament } = require("../db");
-const getAllTemperaments = require("../utils/getAllTemperaments");
+const getAllTemperaments = require("../helpers/getAllTemperaments");
 
 //Revisamos los datos de la base de datos local (No tienen que estar duplicados!)
 const allTemperaments = async() =>{
@@ -21,8 +21,8 @@ const allTemperaments = async() =>{
     
         return tempBD;
     } catch (error) {
-        // return  {message: error.message };
-        alert("no esta guardando ni bostaaa ehhh")
+        return  {message: error.message };
+       
     }
 }
 

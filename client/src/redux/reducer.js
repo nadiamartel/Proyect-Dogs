@@ -1,11 +1,10 @@
-import { GET_ALLDOGS, SHOW_ALLDOGS, ORDER_ASCENDENTE, ORDER_DESCENDENTE, ORDER_WEIGHT_MAYOR, FILTER_API, FILTER_BDD, FILTER_TEMPERAMENTS, ORDER_WEIGHT_MENOR, CLEAN_MSG_DETAIL } from './actions-types';
+import { GET_ALLDOGS, SHOW_ALLDOGS, ORDER_ASCENDENTE, ORDER_DESCENDENTE, ORDER_WEIGHT_MAYOR, FILTER_API, FILTER_BDD, FILTER_TEMPERAMENTS, ORDER_WEIGHT_MENOR } from './actions-types';
 
 const initialState = {
     allDogs: [],
     showDogs: [],
     // temperaments: [],
-    // allTemperaments: [],
-    // breeds: []
+    // allTemperaments: []
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -81,26 +80,7 @@ const reducer = (state = initialState, { type, payload }) => {
             } else{
                 return state
             }
-        case CLEAN_MSG_DETAIL:
-            return {
-                ...state,
-                message: ""
-            }
-        // >>> PRUEBA DE TEMPERAMENTOS <<<//
-        // case SEARCH_BREED:
-        //     if (payload === "") return { ...state, breeds: state.allDogs };
-        //     const breed = state.allDogs.filter((dog) => {
-        //         return dog.name.toLowerCase().includes(payload.toLowerCase());
-        //     });
-        //     return { ...state, breeds: breed };
-        // case SEARCH_TEMPERAMENT:
-        //     if (payload === "")
-        //         return { ...state, temperaments: state.allTemperaments };
 
-        //     const temp = state.allTemperaments.filter((tem) => {
-        //         return tem.name.toLowerCase().includes(payload.toLowerCase());
-        //     });
-        //     return { ...state, temperaments: temp };
         default:
             return {
                 ...state

@@ -1,21 +1,15 @@
 import axios from "axios";
-import { msgDetail, msgNotFound } from "../../redux/actions";
 
-
-export const getDog = async (id, setDog, dispatch) => {
+export const getDog = async (id, setDog, history) => {
   try {
     const { data } = await axios(`http://localhost:3001/dogs/${id}`);
     setDog(data);
   } catch (error) {
-    dispatch(msgNotFound(`There is not dog with id: ${id}`))
+    alert(`There is not dog with id: ${id}`)
 
     setTimeout(() => {
-      dispatch(msgDetail())
-    }, "2000")
-
-  //   setTimeout(() => {
-  //     history.push('/home')
-  //   }, "3000")
+      history.push('/home')
+    }, "3000")
   }
 };
 
@@ -27,7 +21,7 @@ export const handleChange = (event, dataUpdate, setDataUpdate) => {
   })
 }
 
-export const handleDelete = async (id, dispatch, history) => {
+export const handleDelete = async (id, history) => {
   try {
     const { data } = await axios.delete(`http://localhost:3001/dogs/${id}`)
     alert("The dog was removed successfully!");
@@ -42,7 +36,7 @@ export const handleDelete = async (id, dispatch, history) => {
   }
 };
 
-export const handleEdit = async (id, dispatch, dataUpdate, setView, history) => {
+export const handleEdit = async (id, dataUpdate, history) => {
   try {
     const newDataDog = {
       id: id,
@@ -53,18 +47,14 @@ export const handleEdit = async (id, dispatch, dataUpdate, setView, history) => 
     };
 
     const { data } = await axios.put(`http://localhost:3001/dogs/${id}`, newDataDog);
-
     // console.log(newDataDog.weight);
+    console.log(data);
     alert("Modified successfully!")
 
     setTimeout(() => {
       history.push('/home')
-    }, "2000")
-    // dispatch(msgNotFound(data.message))
-    // setTimeout(() => {
-    //   dispatch(msgDetail())
-    //   window.location.reload()
-    // }, "1000")
+    }, "3000")
+
   } catch (error) {
     alert("Unexpected error, please try again later")
   }

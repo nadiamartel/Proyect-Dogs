@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getDogs, filterInfoApi, filterInfoBDD, filterTemp, orderAsc, orderDesc, orderWeMayor, orderWeMenor  } from "../../redux/actions";
+import { getDogs, filterInfoApi, filterInfoBDD, filterTemp, orderAsc, orderDesc, orderWeMayor, orderWeMenor } from "../../redux/actions";
 
 //peticion a la BDD para mostrar los temps en el filtro
 export const getTemperaments = async(setTemperaments) =>{

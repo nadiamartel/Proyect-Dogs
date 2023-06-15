@@ -35,7 +35,7 @@ const Detail = () => {
 
     const handleDeleteL = (event) => {
         event.preventDefault();
-        handleDelete(id, dispatch, history);
+        handleDelete(id, history);
     };
 
     const handleEditL = (event) => {
@@ -45,7 +45,7 @@ const Detail = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleEdit(id, dispatch, dataUpdate, setShow, history)
+        handleEdit(id, dataUpdate, history)
     }
 
     //Adapatar para id de BDD y API y asi poder modif y eliminar
@@ -86,7 +86,7 @@ const Detail = () => {
                 </div>
 
             </div>
-            <div id="alert-container"></div>
+            <div></div>
             {
                 show && <form className={s.form} onSubmit={handleSubmit} >
                     <label>Complete the information you want to update:</label>

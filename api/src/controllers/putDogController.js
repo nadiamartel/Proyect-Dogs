@@ -20,7 +20,7 @@ const dogUpdate = async(id, name, life_span, height, weight) =>{
     await updateDog?.save();
 
     console.log(updateDog.dataValues.weight);
-    return { message: "Updated information!" };
+    return { message: "Updated information!" }; //se muestra solo si tengo en el estado message: ""
 }
 
 module.exports={

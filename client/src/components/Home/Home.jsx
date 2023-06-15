@@ -84,9 +84,6 @@ const Home = () => {
                     <option value="weMenor">Greater weight</option>
                 </select>
 
-                {/* <Link to="/home">
-                    <button>Refresh all</button>
-                </Link> */}
             </div>
 
             <div className={s.cardContainer}>

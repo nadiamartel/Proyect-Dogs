@@ -106,3 +106,9 @@ p {
     border-radius: 4px;
     /* Otros estilos personalizados para la alerta de error */
   }
+
+  .alert {
+    background-color: #e5f9ff;
+    color: #00334e;
+    font-size: 16px;
+  }

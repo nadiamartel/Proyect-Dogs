@@ -15,7 +15,7 @@ const getAllTemperaments = async () => {
             }
         })
     })
-    console.log(allTemperaments);
+    // console.log(allTemperaments);
     return allTemperaments;
 };
 

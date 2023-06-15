@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALLDOGS, SHOW_ALLDOGS, ORDER_ASCENDENTE, ORDER_DESCENDENTE, ORDER_WEIGHT_MAYOR, FILTER_API, FILTER_BDD, FILTER_TEMPERAMENTS, ORDER_WEIGHT_MENOR, CLEAN_MSG_DETAIL, NOT_FOUND_MSG } from './actions-types';
+import { GET_ALLDOGS, SHOW_ALLDOGS, ORDER_ASCENDENTE, ORDER_DESCENDENTE, ORDER_WEIGHT_MAYOR, FILTER_API, FILTER_BDD, FILTER_TEMPERAMENTS, ORDER_WEIGHT_MENOR } from './actions-types';
 
 export const getDogs = () => {
     return async (dispatch) => {
@@ -70,32 +70,3 @@ export const filterTemp = (temps) => {
         payload: temps
     }
 };
-
-export const msgDetail = () => {
-    return {
-        type: CLEAN_MSG_DETAIL,
-        payload: null
-    }
-};
-
-export const msgNotFound = (message) => {
-    return {
-        type: NOT_FOUND_MSG,
-        payload: message
-    }
-}
-
-//>>> PRUBA DE TEMPERAMENTOS <<<//
-// export const searchBreed = (value) => {
-//     return {
-//         type: SEARCH_BREED,
-//         payload: value
-//     }
-// };
-
-// export const searchTemperament = (value) => {
-//     return {
-//         type: SEARCH_TEMPERAMENT,
-//         payload: value
-//     }
-// };
