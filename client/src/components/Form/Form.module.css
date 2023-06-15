@@ -91,3 +91,18 @@ p {
     font-size: 18px;
 }
 
+.success-alert {
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    /* Otros estilos personalizados para la alerta de éxito */
+  }
+  
+  .error-alert {
+    background-color: #f44336;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    /* Otros estilos personalizados para la alerta de error */
+  }

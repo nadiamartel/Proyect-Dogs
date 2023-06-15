@@ -55,9 +55,8 @@ export const handleSubmit = async (dogCreate, setDogCreate, setTempShow) => {
             temperaments: []
         })
         setTempShow([]);
-        alert("Dog created successfully!")
-        console.log(data); //para que no crashee
+        alert("Dog created successfully!");
     } catch (error) {
-        alert("Unexpected error, please try again later")
+        alert("Unexpected error, please try again later");
     }
 }
