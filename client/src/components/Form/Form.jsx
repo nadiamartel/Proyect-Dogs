@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { validate } from "./validate";
 
 const Form = () => {
-  
+
     const [tempShow, setTempShow] = useState([]);
     const [temperaments, setTemperaments] = useState([]);
     const [tempSelect, setTempSelect] = useState("");
@@ -102,7 +102,7 @@ const Form = () => {
                 <button className={s.add_btn} disabled={!tempSelect} onClick={handleChangeButton}>Add Temperament</button>
                 {tempShow.length > 0 ? <h5 className={s.temps}>Your selection:{" "} <span>{tempShow.join(", ")}</span></h5> : null}
                 {errors.temperaments && <p>{errors.temperaments}</p>}
-
+                
 
                 <div>
                     {   //verifico si hay algun error en el obj errors:

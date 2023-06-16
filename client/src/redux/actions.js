@@ -70,3 +70,4 @@ export const filterTemp = (temps) => {
         payload: temps
     }
 };
+

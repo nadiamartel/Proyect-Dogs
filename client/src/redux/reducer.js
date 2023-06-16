@@ -3,8 +3,7 @@ import { GET_ALLDOGS, SHOW_ALLDOGS, ORDER_ASCENDENTE, ORDER_DESCENDENTE, ORDER_W
 const initialState = {
     allDogs: [],
     showDogs: [],
-    // temperaments: [],
-    // allTemperaments: []
+    message: ""
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -52,32 +51,32 @@ const reducer = (state = initialState, { type, payload }) => {
                 })
             }
         case FILTER_API: //REVISAR!!
-            if(Array.isArray(state.allDogs)){
+            if (Array.isArray(state.allDogs)) {
                 const allDogs1 = [...state.allDogs]
                 return {
                     ...state,
                     showDogs: allDogs1.filter(dog => typeof dog.id === "number") //id de la api es num entero
                 }
-            } else{
+            } else {
                 return state
             }
         case FILTER_BDD: //REVISAR /([a-zA-Z]+([0-9]+[a-zA-Z]+)+)/
-            if(Array.isArray(state.allDogs)){
+            if (Array.isArray(state.allDogs)) {
                 const allDogs2 = [...state.allDogs]
                 return {
                     showDogs: allDogs2.filter(dog => /[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/.test(dog.id))
                 };
-            } else{
+            } else {
                 return state
             }
         case FILTER_TEMPERAMENTS: //REVISAR
-            if(Array.isArray(state.allDogs)){
+            if (Array.isArray(state.allDogs)) {
                 const allDogs3 = [...state.allDogs]
                 return {
                     ...state,
                     showDogs: allDogs3.filter(dog => dog?.temperament?.includes(payload))
                 }
-            } else{
+            } else {
                 return state
             }
 

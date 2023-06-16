@@ -29,7 +29,7 @@ export const handleDelete = async (id, history) => {
     setTimeout(() => {
       history.push('/home')
     }, "3000")
-    
+
     console.log(data); //para que no crashee
   } catch (error) {
     alert("Unexpected error, please try again later")

@@ -6,6 +6,7 @@ import s from "./Detail.module.css"
 // import { Link } from 'react-router-dom';
 
 const Detail = () => {
+    
     const { id } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();

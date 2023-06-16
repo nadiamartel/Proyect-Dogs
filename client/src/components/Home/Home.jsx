@@ -4,6 +4,7 @@ import { getDogs } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getTemperaments, nextPage, prevPage, showFirst, filterOrigin, filterTemperaments, orderAlfa, orderWeight } from "./Home.js";
 import Card from "../Card/Card.jsx";
+import Footer from "../Footer/Footer";
 // import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -107,6 +108,9 @@ const Home = () => {
                 <label className={s.page} htmlFor="current">{currentPage}</label>
                 <button className={s.button} onClick={nextPageHandler}>Next ⏩</button>
             </div>
+            <hr />
+                <Footer/>
+            <hr />
         </div>
     )
 }

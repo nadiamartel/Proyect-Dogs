@@ -1,9 +1,9 @@
-.general{
-    background-color: #F7EF99 ;
+.general {
+    background-color: #F7EF99;
     /* height: 100vh; */
 }
 
-.cardContainer{
+.cardContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -11,13 +11,13 @@
     padding: 10px;
 }
 
-.btn_container{
+.btn_container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.button{
+.button {
     color: #F7EF99;
     background-color: #5D675B;
     line-height: 20px;
@@ -25,28 +25,38 @@
     transition: 0.5s ease all;
 }
 
-.page{
+.page {
     margin-right: 13px;
 }
 
-.button:hover{
+.button:hover {
     font-size: 17px;
     font-weight: bold;
 }
 
-.title{
+.title {
     color: #599A2E;
     font-weight: bold;
 }
 
-select{
+select {
     border: 2px solid #599A2E;
     margin-right: 7px;
     outline: none;
 }
 
-option{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+option {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
     font-size: 15px;
 }
 
+hr {
+    border: none;
+    background-color: #5D675B;
+    height: 5px;
+    margin: 10px;
+}
+
+footer{
+    margin-bottom: 0; /* Elimina el margen inferior de los elementos <h5> */
+}
