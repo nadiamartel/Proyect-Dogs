@@ -9,6 +9,7 @@ const NavBar = () =>{
     return(
         <div className={s.bg}>
             <div className={s.container}>
+                
                 <img  className={s.img} src={opcion2} alt="dogWelcome" />
 
                 <SearchBar/>

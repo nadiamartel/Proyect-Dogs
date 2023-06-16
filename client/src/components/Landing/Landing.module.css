@@ -3,9 +3,9 @@
     border: #17202A  solid 2px;
     color: #273746;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 21px;
     font-weight: bold;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
     padding: .75rem;
     border-bottom-left-radius: 15px 255px;
     border-bottom-right-radius: 225px 15px;
@@ -21,6 +21,8 @@
   .title{
     color: white;
     align-items: flex-end;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    font-size: 41px;
   }
 
   .bg{
@@ -31,8 +33,6 @@
     justify-content: center;
     align-items:normal;
     height: 100vh;
-    /* background-image: url("https://img.freepik.com/vector-gratis/vector-fondo-animal-ilustracion-mascotas-lindas_53876-127698.jpg?w=2000"); */
-    /* opacity: 80%; */
     background-position: center;
     background-size: cover;
   }

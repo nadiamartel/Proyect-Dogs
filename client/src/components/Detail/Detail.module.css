@@ -25,10 +25,12 @@
     width: 400px;
     height: 330px;
     border-radius: 13px;
+    border: 5px outset #5D675B;
 }
 
 .img:hover{
     border: 5px outset #5D675B;
+    transform: scaleX(-1);
 }
 
 .info{
