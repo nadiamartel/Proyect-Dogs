@@ -12,7 +12,7 @@ const Home = () => {
     const allDogs = useSelector(state => state.showDogs);
     const [temperaments, setTemperaments] = useState([]);
     const [cardsShow, setCardsShow] = useState([]);
-    const [currentPage, setCurrentPage] = useState(0)
+    const [currentPage, setCurrentPage] = useState(0);
 
     useEffect(() => {
         getTemperaments(setTemperaments)

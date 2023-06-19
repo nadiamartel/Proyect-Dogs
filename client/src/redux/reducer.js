@@ -36,7 +36,7 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 showDogs: allDogsAuxDos.sort((a, b) => {
-                    const weightA = +a.weight.metric.split(" ")[0];
+                    const weightA = +a.weight.metric.split(" ")[0]; //+ para pasar de text a number
                     const weightB = +b.weight.metric.split(" ")[0];
                     return weightA - weightB //porq el formato de la API es: weight:{ metric: 7 - 27}
                 })

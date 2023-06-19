@@ -70,7 +70,6 @@ p {
     color: #F1BB87;
     font-weight: bold;
     cursor: pointer;
-    /* transition: .5s; */
 }
 
 .add_btn:hover{
