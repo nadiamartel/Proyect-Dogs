@@ -59,12 +59,14 @@ const Home = () => {
             <div>
                 <span className={s.title}>Filter By:</span>
                 <select onChange={handleFilterOrigin}>
+                    <option value="default" hidden>Data source</option>
                     <option value="All">All Dogs</option>
                     <option value="API">Dogs Interface</option>
                     <option value="BDD">Dogs Created</option>
                 </select>
 
                 <select onChange={handleFilterTemperaments}>
+                    <option value="default" hidden>Temperaments</option>
                     {
                         temperaments.map((temp, index) => {
                             return (
@@ -76,11 +78,13 @@ const Home = () => {
 
                 <span className={s.title}>Order By:</span>
                 <select onChange={handleOrderAlfa}>
+                    <option value="default" hidden>Alphabet</option>
                     <option value="Asc">Ascending</option>
                     <option value="Desc">Descending</option>
                 </select>
 
                 <select onChange={handleOrderWeight}>
+                    <option value="default" hidden>Weight(kg)</option>
                     <option value="weMayor">Lower weight</option>
                     <option value="weMenor">Greater weight</option>
                 </select>
