@@ -19,6 +19,7 @@ export const nextPage = (allDogs, currentPage, setCardsShow, setCurrentPage) =>{
 
     setCardsShow([...allDogs].slice(firstCard, firstCard + dogsPage));
     setCurrentPage(proxPage);
+    //calculamos el indice del primer perrito a mostrar en la prox pag, chequeamos si hay mas perros dispo y actualizamos el estado o mostramos los perros q corresponden a la prox pagina(tb actualiza el estado de la pag actual)
 };
 
 export const prevPage = (allDogs, currentPage, setCardsShow, setCurrentPage) =>{
@@ -28,10 +29,12 @@ export const prevPage = (allDogs, currentPage, setCardsShow, setCurrentPage) =>{
     setCardsShow([...allDogs].slice(firstCard, firstCard + dogsPage));
     setCurrentPage(befPage)
 };
+    //para retroceder, mostramos el indice del primer perrito a mostrar en la pag anterior, si hay anterior dispo, actualiza el estado o muestra los perros correspondientes a la pag anterior(tb actualiza el estado de la pagina actual)
 
 export const showFirst = (allDogs, setCardsShow) =>{
     setCardsShow([...allDogs].slice(0, dogsPage))
-}
+}   //para mostrar la 1ra pag
+
 
 //Filtrados
 export const filterOrigin = (value, dispatch, setCurrentPage) =>{
