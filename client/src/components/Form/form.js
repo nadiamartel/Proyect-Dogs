@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 //traigo los temperamentos guardados em la base de datos:
 export const getTemperaments = async (setTemperaments) => {
@@ -10,14 +11,14 @@ export const getTemperaments = async (setTemperaments) => {
 export const handleChange = (event, dogCreate, setDogCreate, setErrors, validate) => {
     const { name, value } = event.target;
     setDogCreate({
-        ...dogCreate, 
+        ...dogCreate,
         [name]: value
     })
 
     setErrors(
         validate({
             ...dogCreate,
-             [name]: value
+            [name]: value
         })
     )
 };
@@ -55,9 +56,26 @@ export const handleSubmit = async (dogCreate, setDogCreate, setTempShow) => {
             temperaments: []
         })
         setTempShow([]);
-        alert("Dog created successfully!");
+        Swal.fire({
+            text: "Dog created successfully!",
+            icon: 'success',
+            showConfirmButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Add new puppy",
+            cancelButtonText: "Return Home",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'http://localhost:3000/create';
+            } else {
+                window.location.href = 'http://localhost:3000/home';
+            }
+        })
         console.log(data); //para que no crashee
     } catch (error) {
-        alert("Unexpected error, please try again later");
+        Swal.fire({
+            title: "Unexpected error, please try again later" ,
+            icon: "error",
+            timer: 3000,
+        })
     }
 }

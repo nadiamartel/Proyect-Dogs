@@ -61,8 +61,8 @@ const infoAllDogs = async(name) =>{
     
     const dogsFoundAPI = [];
 
-    for(const dog of data){ //verificamos si el dog tiene esta prop referida a la img:
-        if(dog.hasOwnProperty("reference_image_id")){ //si esta, pedimos detalles
+    for(const dog of data){
+        if(dog.hasOwnProperty("reference_image_id")){
             let { data } = await axios(`https://api.thedogapi.com/v1/images/${dog?.reference_image_id}`);
 
             const newDog = {

@@ -33,6 +33,7 @@ const SearchBar = () =>{
                 className={s.input} />
 
             <button className={s.button} onClick={handleSearchL}>SEARCH</button>
+
         </div>
     )
 }

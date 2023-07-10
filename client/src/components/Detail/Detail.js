@@ -1,11 +1,21 @@
 import axios from "axios";
+import Swal from "sweetalert2";
+
 
 export const getDog = async (id, setDog, history) => {
   try {
     const { data } = await axios(`http://localhost:3001/dogs/${id}`);
     setDog(data);
   } catch (error) {
-    alert(`There is not dog with id: ${id}`)
+    Swal.fire({
+      title: `There is not dog with id: ${id}`,
+      icon: "error",
+      timer: 3000,
+      timerProgressBar: true,
+      showConfirmButton: false,
+      backdrop: true
+    })
+    // alert(`There is not dog with id: ${id}`)
 
     setTimeout(() => {
       history.push('/home')
@@ -24,7 +34,14 @@ export const handleChange = (event, dataUpdate, setDataUpdate) => {
 export const handleDelete = async (id, history) => {
   try {
     const { data } = await axios.delete(`http://localhost:3001/dogs/${id}`)
-    alert("The dog was removed successfully!");
+    Swal.fire({
+      text: "The dog was removed successfully!",
+      icon: 'success',
+      timer: 3000,
+      timerProgressBar: true,
+      showConfirmButton: false
+
+    })
 
     setTimeout(() => {
       history.push('/home')
@@ -32,7 +49,11 @@ export const handleDelete = async (id, history) => {
 
     console.log(data); //para que no crashee
   } catch (error) {
-    alert("Unexpected error, please try again later")
+    Swal.fire({
+      title: "Unexpected error, please try again later",
+      icon: "error",
+      timer: 3000,
+    })
   }
 };
 
@@ -49,14 +70,24 @@ export const handleEdit = async (id, dataUpdate, history) => {
     const { data } = await axios.put(`http://localhost:3001/dogs/${id}`, newDataDog);
     // console.log(newDataDog.weight);
     console.log(data);
-    alert("Modified successfully!")
+    Swal.fire({
+      text: "Modified successfully!",
+      icon: 'success',
+      timer: 3000,
+      timerProgressBar: true,
+      showConfirmButton: false
+    })
 
     setTimeout(() => {
       history.push('/home')
     }, "3000")
 
   } catch (error) {
-    alert("Unexpected error, please try again later")
+    Swal.fire({
+      title: "Unexpected error, please try again later",
+      icon: "error",
+      timer: 3000,
+    })
   }
 };
 
