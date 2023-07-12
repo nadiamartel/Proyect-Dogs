@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTemperaments, nextPage, prevPage, showFirst, filterOrigin, filterTemperaments, orderAlfa, orderWeight } from "./Home.js";
 import Card from "../Card/Card.jsx";
 import Footer from "../Footer/Footer";
+import Loading from "../Loading/Loading";
 // import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -13,18 +14,33 @@ const Home = () => {
     const [temperaments, setTemperaments] = useState([]);
     const [cardsShow, setCardsShow] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         getTemperaments(setTemperaments)
     }, [])
 
     useEffect(() => {
-        dispatch(getDogs())
-    }, [dispatch]) //REVISAR ESTO!
-
-    useEffect(() => {
         showFirst(allDogs, setCardsShow)
     }, [allDogs])
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            dispatch(getDogs()).then(() =>{
+                setIsLoading(false);
+            })
+        }, 900);
+        
+        return () => clearTimeout(timer);
+    }, [dispatch, setIsLoading]) //REVISAR ESTO!
+    
+    if(isLoading){
+        return(
+            <div>
+                <Loading />
+            </div>
+        )
+    }
 
     const nextPageHandler = () => {
         nextPage(allDogs, currentPage, setCardsShow, setCurrentPage)
