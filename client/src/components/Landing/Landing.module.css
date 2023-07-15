@@ -1,23 +1,4 @@
-.button {
-    align-self: center;
-    border: #17202A  solid 2px;
-    color: #273746;
-    cursor: pointer;
-    font-size: 21px;
-    font-weight: bold;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
-    padding: .75rem;
-    border-bottom-left-radius: 15px 255px;
-    border-bottom-right-radius: 225px 15px;
-    border-top-left-radius: 255px 15px;
-    border-top-right-radius: 15px 225px;
-    background-color: #F78E69;
-  }
-
-  .button:hover {
-    transform: translateY(2px);
-  }
-
+ 
   .title{
     color: white;
     align-items: flex-end;
@@ -36,3 +17,19 @@
     background-position: center;
     background-size: cover;
   }
+
+  .button {
+    padding: 0.6em 1em;
+    border: 4px solid #fa725a;
+    transition: ease-in-out 0.3s;
+    background-color: transparent;
+    color: #fa725a;
+    font-weight: bolder;
+    font-size: 21px;
+   }
+   
+   .button:hover {
+    transform: scale(1.2) rotate(10deg);
+    background-color: #fa725a;
+    color: white;
+   }
